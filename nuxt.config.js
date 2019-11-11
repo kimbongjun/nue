@@ -21,6 +21,7 @@ module.exports = {
       'moment'
     ]
   },
+
   css: [
     'normalize.css/normalize.css'
   ],
@@ -28,18 +29,30 @@ module.exports = {
   // Headers of the page
   head: {
     title: 'wp-vue',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+    meta: [{
+      charset: 'utf-8'
+    },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1'
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'Nuxt.js project'
+    }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicon.ico'
+    }]
   },
 
   // Customize the progress-bar color
-  loading: { color: '#384D66' },
+  loading: {
+    color: '#384D66'
+  },
 
   modules: [
     '@nuxtjs/axios',
@@ -48,11 +61,21 @@ module.exports = {
     }]
   ],
 
-  plugins: [
-    { src: '~plugins/vue-lazyload', ssr: false },
-    { src: '~plugins/vue-scrollto', ssr: false },
-    { src: '~plugins/web-font-loader', ssr: false },
-    { src: '~plugins/mixins' }
+  plugins: [{
+    src: '~plugins/vue-lazyload',
+    ssr: false
+  },
+  {
+    src: '~plugins/vue-scrollto',
+    ssr: false
+  },
+  {
+    src: '~plugins/web-font-loader',
+    ssr: false
+  },
+  {
+    src: '~plugins/mixins'
+  }
   ],
 
   vendor: ['lightgallery.js']
