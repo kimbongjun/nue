@@ -3,7 +3,10 @@ import Vuex from 'vuex'
 const store = () => new Vuex.Store({
 
   actions: {
-    async nuxtServerInit ({ commit, state }) {
+    async nuxtServerInit ({
+      commit,
+      state
+    }) {
       let meta = await this.$axios.get(state.wordpressAPI)
       commit('setMeta', meta.data)
     }

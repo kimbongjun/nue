@@ -6,7 +6,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import '~assets/css/vars.scss';
+@import "~assets/css/vars.scss";
 
 .spinner {
   width: 40px;
@@ -17,35 +17,38 @@
   }
 }
 
-.double-bounce1, .double-bounce2 {
+.double-bounce1,
+.double-bounce2 {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #adadad;
+  background-color: #37b0bb;
   opacity: 0.6;
   position: absolute;
   top: 0;
   left: 0;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
 }
 
 .double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
 }
 
 @keyframes sk-bounce {
-  0%, 100% { 
-    transform: scale(0.0);
-  } 50% { 
-    transform: scale(1.0);
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
   }
 }
 
 .infinite-status-prompt {
-  color: rgba($primary, .65);
+  color: rgba($primary, 0.65);
   font-size: 0.8rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 64px auto;
   text-align: center;
 }

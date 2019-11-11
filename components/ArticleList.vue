@@ -5,18 +5,28 @@
         <span v-html="shortTimestamp(article.date)"></span>
         &nbsp;–&nbsp;
         <span class="topics">
-          <nuxt-link class="topic fancy" v-for="topic in article._embedded['wp:term'][0]" :to="`/topics/${topic.slug}`" :key="topic.id" v-html="topic.name"></nuxt-link>
+          <nuxt-link
+            class="topic fancy"
+            v-for="topic in article._embedded['wp:term'][0]"
+            :to="`/topics/${topic.slug}`"
+            :key="topic.id"
+            v-html="topic.name"
+          ></nuxt-link>
         </span>
       </div>
       <nuxt-link :to="`/${article.slug}`" class="row">
         <div class="col">
           <div class="lazy thumbnail" v-if="article._embedded['wp:featuredmedia']">
-            <img v-lazy="article._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url">
-            <Spinner1 class="spinner"/>
+            <img
+              v-lazy="article._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url"
+            />
+            <Spinner1 class="spinner" />
           </div>
           <div class="lazy medium" v-if="article._embedded['wp:featuredmedia']">
-            <img v-lazy="article._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url">
-            <Spinner1 class="spinner"/>
+            <img
+              v-lazy="article._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url"
+            />
+            <Spinner1 class="spinner" />
           </div>
         </div>
         <div class="col">
@@ -29,7 +39,7 @@
 </template>
 
 <script>
-import Spinner1 from '~/components/Spinner1'
+import Spinner1 from "~/components/Spinner1";
 
 export default {
   components: {
@@ -41,11 +51,11 @@ export default {
   mixins: {
     shortTimestamp: Function
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/vars.scss';
+@import "~assets/css/vars.scss";
 
 .article-list {
   article + article {
@@ -78,7 +88,7 @@ export default {
   }
 
   .date {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 0.75rem;
     font-weight: 400;
     margin-bottom: 12px;
@@ -89,7 +99,7 @@ export default {
         margin-left: 8px;
 
         &::before {
-          content: ', ';
+          content: ", ";
           color: $primary;
           left: -7px;
           position: absolute;
@@ -118,7 +128,7 @@ export default {
   .lazy {
     margin: 0 22px 0 0;
 
-     &.thumbnail {
+    &.thumbnail {
       display: block;
     }
 

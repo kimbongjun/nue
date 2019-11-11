@@ -4,7 +4,7 @@ module.exports = {
   // Build configuration
   build: {
     // Run ESLINT on save
-    extend (config, ctx) {
+    extend(config, ctx) {
       if (ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -51,7 +51,7 @@ module.exports = {
 
   // Customize the progress-bar color
   loading: {
-    color: '#384D66'
+    color: '#37b0bb'
   },
 
   modules: [
