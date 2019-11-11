@@ -1,17 +1,13 @@
 <template>
   <div class="comments">
     <div class="loading" v-if="!disqusReady">
-      <Spinner1/>
+      <Spinner1 />
       <span>Loading comments</span>
     </div>
     <div class="disqus" :class="{ ready: disqusReady }">
       <no-ssr>
         <lazy-component>
-          <VueDisqus
-            shortname="nuepress-kmr-io"
-            :identifier="article.slug"
-            @ready="disqusReady = true"
-          />
+          <VueDisqus shortname="nuxtpress" :identifier="article.slug" @ready="disqusReady = true" />
         </lazy-component>
       </no-ssr>
     </div>
@@ -19,8 +15,8 @@
 </template>
 
 <script>
-import Spinner1 from '~/components/Spinner1'
-import VueDisqus from 'vue-disqus/VueDisqus.vue'
+import Spinner1 from "~/components/Spinner1";
+import VueDisqus from "vue-disqus/VueDisqus.vue";
 
 export default {
   props: {
@@ -30,12 +26,12 @@ export default {
     Spinner1,
     VueDisqus
   },
-  data () {
+  data() {
     return {
       disqusReady: false
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
