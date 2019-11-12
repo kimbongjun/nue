@@ -10,13 +10,13 @@
         <nuxt-link to="/authors">Authors</nuxt-link>
         <nuxt-link to="/pages/sample-page">Sample Page</nuxt-link>
       </nav>
-      <TheHeaderSearch/>
+      <TheHeaderSearch />
     </div>
   </header>
 </template>
 
 <script>
-import TheHeaderSearch from '~/components/TheHeaderSearch'
+import TheHeaderSearch from "~/components/TheHeaderSearch";
 
 export default {
   components: {
@@ -24,22 +24,22 @@ export default {
   },
 
   computed: {
-    meta () {
-      return this.$store.state.meta
+    meta() {
+      return this.$store.state.meta;
     }
   },
 
   mixins: {
     homeScrollTop: Function
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/vars.scss';
+@import "~assets/css/vars.scss";
 
 header {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   left: 0;
   position: fixed;
   top: 0;
@@ -71,7 +71,7 @@ header {
     }
 
     h1 {
-      color: #666;
+      color: #000;
       cursor: pointer;
       font-size: 1.1rem;
       font-weight: 400;

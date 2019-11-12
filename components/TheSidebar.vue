@@ -3,16 +3,31 @@
     <div class="inner-container">
       <h1>Top Articles</h1>
       <article v-for="article in featuredArticles" :key="article.id">
-        <nuxt-link :to="`/${article.slug}`" v-if="article._embedded['wp:featuredmedia']" class="image">
+        <nuxt-link
+          :to="`/${article.slug}`"
+          v-if="article._embedded['wp:featuredmedia']"
+          class="image"
+        >
           <div class="featured lazy" v-if="featuredImage(article)">
-            <div class="image-height" :style="{ paddingTop: featuredImage(article).height / featuredImage(article).width * 100 + '%' }"></div>
-            <img v-lazy="featuredImage(article).source_url">
-            <Spinner1/>
+            <div
+              class="image-height"
+              :style="{ paddingTop: featuredImage(article).height / featuredImage(article).width * 100 + '%' }"
+            ></div>
+            <img v-lazy="featuredImage(article).source_url" />
+            <Spinner1 />
           </div>
         </nuxt-link>
         <div class="content">
           <div class="meta">
-            <span v-html="shortTimestamp(article.date)"></span>&nbsp;–&nbsp;<nuxt-link class="topic fancy" v-for="topic in article._embedded['wp:term'][0]" :to="`/topics/${topic.slug}`" :key="topic.id" v-html="topic.name" v-if="topic.id !== $store.state.featuredID"></nuxt-link>
+            <span v-html="shortTimestamp(article.date)"></span>&nbsp;–&nbsp;
+            <nuxt-link
+              class="topic fancy"
+              v-for="topic in article._embedded['wp:term'][0]"
+              :to="`/topics/${topic.slug}`"
+              :key="topic.id"
+              v-html="topic.name"
+              v-if="topic.id !== $store.state.featuredID"
+            ></nuxt-link>
           </div>
           <nuxt-link :to="`/${article.slug}`" class="article">
             <h2 v-html="article.title.rendered"></h2>
@@ -25,7 +40,7 @@
 </template>
 
 <script>
-import Spinner1 from '~/components/Spinner1'
+import Spinner1 from "~/components/Spinner1";
 
 export default {
   components: {
@@ -38,19 +53,19 @@ export default {
     shortTimestamp: Function
   },
   methods: {
-    featuredImage (article) {
-      let featuredImage = article._embedded['wp:featuredmedia']
+    featuredImage(article) {
+      let featuredImage = article._embedded["wp:featuredmedia"];
 
       if (featuredImage) {
-        return featuredImage[0].media_details.sizes.medium || false
+        return featuredImage[0].media_details.sizes.medium || false;
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/vars.scss';
+@import "~assets/css/vars.scss";
 
 aside {
   min-width: 360px;
@@ -87,7 +102,7 @@ aside {
 
           &::before {
             background-color: rgba(0, 0, 0, 0);
-            content: '';
+            content: "";
             height: 100%;
             position: absolute;
             top: 0;
@@ -142,7 +157,7 @@ aside {
       }
 
       .meta {
-        font-family: 'Roboto', sans-serif;
+        font-family: "Noto Sans KR", sans-serif;
         font-size: 0.75rem;
         font-weight: 400;
         margin-bottom: 12px;
@@ -153,7 +168,7 @@ aside {
             margin-left: 8px;
 
             &::before {
-              content: ', ';
+              content: ", ";
               color: $primary;
               left: -7px;
               position: absolute;

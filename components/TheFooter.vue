@@ -13,22 +13,22 @@
 <script>
 export default {
   computed: {
-    meta () {
-      return this.$store.state.meta
+    meta() {
+      return this.$store.state.meta;
     },
-    year () {
-      return new Date().getFullYear()
+    year() {
+      return new Date().getFullYear();
     }
   },
 
   mixins: {
     homeScrollTop: Function
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/css/vars.scss';
+@import "~assets/css/vars.scss";
 
 footer {
   > div {
@@ -38,8 +38,8 @@ footer {
     display: flex;
     flex-direction: column;
     height: 200px;
-    font-family: 'Roboto', sans-serif;
-    font-size: .7rem;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 0.7rem;
     margin: 0 auto;
     max-width: $containerWidth;
     padding: 64px 32px;
